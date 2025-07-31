@@ -4,7 +4,7 @@ show tables;
 
 show databases;
 
--- Sempre começa a criar tabelas pelas ponts e não pelo meio
+-- Sempre começa a criar tabelas pelas bordas e não pelo meio
 create table if not exists categoria(
     id INTEGER primary key auto_increment,
     descricao varchar(100)
@@ -20,12 +20,11 @@ create table if not exists marca(
     descricao VARCHAR(100)
 );
 
-SELECT * from marca;
-
-select
+SELECT
     *
 from
     marca;
+
 
 -- Tabela de produtos - tabela do meio
 -- Deve ter uma chave estrangeira para categoria e marca
@@ -36,4 +35,54 @@ create table if not exists produto(
     marca_id INTEGER,
     preco DECIMAL(10, 2)
 );
-SELECT * from produto;
+
+SELECT
+    *
+from
+    produto;
+
+-- Popular as tabelas de categoria e marca
+INSERT INTO
+    categoria (descricao)
+VALUES
+    ('tênis'),
+    ('Saptilhas Femininas'),
+    ('chinelo');
+
+SELECT
+    *
+FROM
+    categoria;
+
+-- Alterando a descrição da categoria pelo id
+UPDATE
+    categoria
+SET
+    descricao = 'Sapatilhas Femininas'
+WHERE
+    id = 2;
+
+INSERT INTO
+    marca (descricao)
+VALUES
+    ('Olímpicos'),
+    ('Adidas'),
+    ('Mizuno'),
+    ('Shimano'),
+    ('Grendene');
+
+SELECT
+    *
+FROM
+    marca;
+
+-- Visualizando a descrição do produto
+DESC PRODUTO;
+
+-- Populando a tabela de produto
+INSERT INTO
+    produto (categoria_id, marca_id, descricao, preco)
+VALUES
+    (1, 1, 'Breed 2', 89.99),
+    (2, 2, 'Sapatilhas Adidas', 299.99),
+    (3, 3, 'Chinelo Grendene', 49.99);
