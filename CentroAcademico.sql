@@ -1,4 +1,4 @@
--- Criação do Banco de Dados
+-- Criação do Banco de Dadosapi_spring
 create database CentroAcademico;
 use CentroAcademico;
 
@@ -54,7 +54,7 @@ CREATE TABLE Turmas (
     FOREIGN KEY (id_curso)
         REFERENCES Cursos (id_curso)
 );
--- Adicionando Coluna data_fim após o data_inioio
+-- Adicionando Coluna data_fim após o data_inicio
 #alter table Turmas
 #add column data_fim date after data_inicio;
 
