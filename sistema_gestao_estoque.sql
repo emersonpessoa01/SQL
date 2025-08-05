@@ -131,3 +131,25 @@ SELECT
 FROM
     produto p
     inner join marca m on (p.marca_id = m.id);
+
+
+-- Listagem Completa de Produtos e Marcas (Simulação de FULL OUTER JOIN)
+SELECT
+    p.id AS codigo_produto,
+    p.descricao AS descricao_produto,
+    m.descricao AS descricao_marca,
+    p.preco AS preco_produto
+FROM
+    produto p
+    LEFT JOIN marca m ON p.marca_id = m.id
+
+UNION
+
+SELECT
+    p.id AS codigo_produto,
+    p.descricao AS descricao_produto,
+    m.descricao AS descricao_marca,
+    p.preco AS preco_produto
+FROM
+    produto p
+    RIGHT JOIN marca m ON p.marca_id = m.id;
