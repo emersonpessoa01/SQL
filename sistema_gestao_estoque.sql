@@ -25,7 +25,6 @@ SELECT
 from
     marca;
 
-
 -- Tabela de produtos - tabela do meio
 -- Deve ter uma chave estrangeira para categoria e marca
 create table if not exists produto(
@@ -71,6 +70,18 @@ VALUES
     ('Shimano'),
     ('Grendene');
 
+-- Deletar campos da tabela marca pleo id
+DELETE FROM
+    marca
+WHERE
+    id in(6, 7, 8, 9, 10);
+
+-- Coluna descricao não pode ter valores repetidos
+ALTER TABLE
+    marca
+ADD
+    CONSTRAINT unique_descricao UNIQUE (descricao);
+
 SELECT
     *
 FROM
@@ -84,5 +95,23 @@ INSERT INTO
     produto (categoria_id, marca_id, descricao, preco)
 VALUES
     (1, 1, 'Breed 2', 89.99),
-    (2, 2, 'Sapatilhas Adidas', 299.99),
-    (3, 3, 'Chinelo Grendene', 49.99);
+    (1, 2, 'Durano Lite 20', 149.99),
+    (1, 2, 'Run Falco Feminino', 169.99),
+    (1, 3, 'Space Masculino', 150.99),
+    (2, 4, 'Speed Shwr61', 328.90),
+    (3, 5, 'Monstrinhos', 24.99);
+
+DELETE FROM
+    produto
+WHERE
+    id in(6, 7, 8, 9, 10, 11, 12);
+
+ALTER TABLE
+    produto
+ADD
+    CONSTRAINT unique_produto UNIQUE (categoria_id, marca_id, descricao);
+
+SELECT
+    *
+FROM
+    produto;
