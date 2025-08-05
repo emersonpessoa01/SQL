@@ -23,7 +23,9 @@ create table if not exists marca(
 SELECT
     *
 from
-    marca;
+    marca
+ORDER BY
+    id asc;
 
 -- Tabela de produtos - tabela do meio
 -- Deve ter uma chave estrangeira para categoria e marca
@@ -85,7 +87,9 @@ ADD
 SELECT
     *
 FROM
-    marca;
+    marca
+where
+    DESC;
 
 -- Visualizando a descrição do produto
 DESC PRODUTO;
@@ -115,3 +119,15 @@ SELECT
     *
 FROM
     produto;
+
+desc produto;
+
+-- Listagem de Produtos com Descrição da Marca e Preço
+SELECT
+    p.id as codigo_produto,
+    p.descricao as descricao_produto,
+    m.descricao as descricao_marca,
+    p.preco as preco_produto
+FROM
+    produto p
+    inner join marca m on (p.marca_id = m.id);
