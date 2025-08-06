@@ -153,3 +153,15 @@ SELECT
 FROM
     produto p
     RIGHT JOIN marca m ON p.marca_id = m.id;
+
+-- Juntando tudo
+SELECT
+    p.id AS codigo_produto,
+    p.descricao AS descricao_produto,
+    c.descricao AS descricao_categoria,
+    m.descricao AS descricao_marca,
+    p.preco AS preco_produto
+FROM
+    produto p
+    INNER JOIN categoria c ON p.categoria_id = c.id
+    INNER JOIN marca m ON p.marca_id = m.id;
