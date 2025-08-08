@@ -165,7 +165,7 @@ FROM
 
 show TABLES;
 
--- Ordenando uma query  com ORDER BY
+-- Ordenando uma query  com ORDER BY(ordenando pelo id do produto)
 SELECT
     p.id AS codigo_produto,
     p.descricao AS descricao_produto,
@@ -178,3 +178,17 @@ FROM
     INNER JOIN marca m ON p.marca_id = m.id
 ORDER BY
     p.id DESC;
+
+-- Ordenando uma query  com ORDER BY(ordenando pelo preço do produtomais barato)
+SELECT
+    p.id AS codigo_produto,
+    p.descricao AS descricao_produto,
+    c.descricao AS descricao_categoria,
+    m.descricao AS descricao_marca,
+    p.preco AS preco_produto
+FROM
+    produto p
+    INNER JOIN categoria c ON p.categoria_id = c.id
+    INNER JOIN marca m ON p.marca_id = m.id
+ORDER BY
+    p.preco ASC;
