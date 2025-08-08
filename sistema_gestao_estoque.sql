@@ -1,9 +1,14 @@
 use sistema_gestao_estoque;
 
+-- DML (DATA LANGUAGE MANIPULATION LANGUAGE) - LINGUAGEM DE MANIPULAÇÃO DE DADOS
+-- DDL (DATA DEFINITION LANGUAGE) - LINGUAGEM DE DEFINIÇÃO DE DADOS
+-- DCL (DATA CONTROL LANGUAGE) - LINGUAGEM DE CONTROLE DE DADOS
+-- TCL (TRANSACTION CONTROL LANGUAGE) - LINGUAGEM DE CONTROLE DE TRANSAÇÃO
 show tables;
 
 show databases;
 
+-- DML (DATA LANGUAGE MANIPULATION LANGUAGE) - LINGUAGEM DE MANIPULAÇÃO DE DADOS
 -- Sempre começa a criar tabelas pelas bordas e não pelo meio
 create table if not exists categoria(
     id INTEGER primary key auto_increment,
