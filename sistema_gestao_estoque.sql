@@ -220,3 +220,19 @@ FROM
     INNER JOIN marca m ON p.marca_id = m.id
 ORDER BY
     c.descricao ASC;
+
+-- Ordenando uma query  com ORDER BY(ordenando pela marca do produto mais barato
+--com preço na ordem decrescente)
+SELECT
+    p.id AS codigo_produto,
+    p.descricao AS descricao_produto,
+    c.descricao AS descricao_categoria,
+    m.descricao AS descricao_marca,
+    p.preco AS preco_produto
+FROM
+    produto p
+    INNER JOIN categoria c ON p.categoria_id = c.id
+    INNER JOIN marca m ON p.marca_id = m.id
+ORDER BY
+    m.descricao ASC,
+    p.preco DESC;
