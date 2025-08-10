@@ -68,6 +68,11 @@ SET
 WHERE
     id = 2;
 
+ALTER TABLE
+    categoria
+ADD
+    CONSTRAINT unique_categoria UNIQUE (descricao);
+
 INSERT INTO
     marca (descricao)
 VALUES
