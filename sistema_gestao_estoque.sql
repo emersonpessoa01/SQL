@@ -262,3 +262,16 @@ from
 where
     p.descricao = "Breed 2";
 
+-- Filtrando produtos pela marca
+select
+    p.id as codigo_produto,
+    p.descricao as descricao_produto,
+    c.descricao as descricao_categoria,
+    m.descricao as descricao_marca,
+    p.preco as preco_produto
+from
+    produto p
+    inner join categoria c on p.categoria_id = c.id
+    inner join marca m on p.marca_id = m.id
+where
+    m.descricao = "Adidas";
