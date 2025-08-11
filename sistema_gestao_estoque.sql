@@ -112,8 +112,16 @@ VALUES
     (1, 2, 'Durano Lite 20', 149.99),
     (1, 2, 'Run Falco Feminino', 169.99),
     (1, 3, 'Space Masculino', 150.99),
-    (2, 4, 'Speed Shwr61', 328.90),
+    (2, 4, 'Speed Shwr61', 328.90) -- Adicionar valores as colunas do produto o id 6
+INSERT
+    IGNORE INTO produto (categoria_id, marca_id, descricao, preco)
+VALUES
     (3, 5, 'Monstrinhos', 24.99);
+
+SELECT
+    *
+from
+    produto;
 
 DELETE FROM
     produto
@@ -336,3 +344,31 @@ from
 where
     p.preco = 89.99
     or p.preco > 300;
+
+-- Filtrando produtos pelo preço <89.99
+select
+    p.id as codigo_produto,
+    p.descricao as descricao_produto,
+    c.descricao as descricao_categoria,
+    m.descricao as descricao_marca,
+    p.preco as preco_produto
+from
+    produto p
+    inner join categoria c on p.categoria_id = c.id
+    inner join marca m on p.marca_id = m.id
+where
+    p.preco < 89.99;
+
+-- Filtrando produtos pela marca Monstrinhos
+select
+    p.id as codigo_produto,
+    p.descricao as descricao_produto,
+    c.descricao as descricao_categoria,
+    m.descricao as descricao_marca,
+    p.preco as preco_produto
+FROM
+    produto p
+    INNER JOIN categoria c ON p.categoria_id = c.id
+    INNER JOIN marca m ON p.marca_id = m.id
+WHERE
+    p.descricao = "Monstrinhos";
